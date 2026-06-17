@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Onest', sans-serif;
+  --font-body: 'Mulish', sans-serif;
+  --color-white-soft: #f7f8fa;
+  --color-orange: #f97316;
+  --color-navy: #14213d;
+  --color-gray-light: #e5e7eb;
+  --color-dark: #131a2a;
+  --color-orange-dark: #ea6c0a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-white-soft);
+  color: var(--color-dark);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+::selection {
+  background: var(--color-orange);
+  color: #fff;
+}
+
+#promo-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  background: #0d0d10;
+  color: #f3f3f1;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+#promo-bar strong {
+  font-weight: 700;
+}
+
+#promo-bar:hover {
+  background: #16161a;
+}
+
+#nav {
+  top: 2.25rem;
+}

@@ -1,0 +1,681 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <!-- NAV -->
+  <nav id="nav" class="fixed left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 group" style="font-family: var(--font-display);">
+        <span class="text-2xl font-800 tracking-tight text-white">Fix<span style="color: var(--color-orange);">Dom</span></span>
+        <span class="hidden sm:inline-block text-xs font-500 text-white/50 border border-white/20 rounded px-1.5 py-0.5 ml-1">Warszawa</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="hidden lg:flex items-center gap-6 text-sm font-500 text-white/80">
+        <li><a href="#uslugi" class="hover:text-orange-400 transition-colors">Usługi</a></li>
+        <li><a href="#o-nas" class="hover:text-orange-400 transition-colors">O nas</a></li>
+        <li><a href="#cennik" class="hover:text-orange-400 transition-colors">Cennik</a></li>
+        <li><a href="#opinie" class="hover:text-orange-400 transition-colors">Opinie</a></li>
+        <li><a href="#obszar" class="hover:text-orange-400 transition-colors">Obszar</a></li>
+        <li><a href="#kontakt" class="hover:text-orange-400 transition-colors">Kontakt</a></li>
+      </ul>
+
+      <!-- CTA + Burger -->
+      <div class="flex items-center gap-3">
+        <a href="#kontakt" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-700 text-white transition-all duration-200" style="background: var(--color-orange); font-family: var(--font-display);" onmouseover="this.style.background='var(--color-orange-dark)'" onmouseout="this.style.background='var(--color-orange)'">
+          Zamów fachowca
+        </a>
+        <button id="burger" class="lg:hidden flex flex-col gap-1.5 p-2 group" aria-label="Menu">
+          <span class="block w-6 h-0.5 bg-white transition-all"></span>
+          <span class="block w-6 h-0.5 bg-white transition-all"></span>
+          <span class="block w-4 h-0.5 bg-white transition-all"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden px-4 pb-4" style="background: rgba(20,33,61,0.97); border-top: 1px solid rgba(249,115,22,0.2);">
+      <ul class="flex flex-col gap-1 pt-2 text-sm font-500">
+        <li><a href="#uslugi" class="block py-2.5 text-white/80 hover:text-orange-400 transition-colors">Usługi</a></li>
+        <li><a href="#o-nas" class="block py-2.5 text-white/80 hover:text-orange-400 transition-colors">O nas</a></li>
+        <li><a href="#cennik" class="block py-2.5 text-white/80 hover:text-orange-400 transition-colors">Cennik</a></li>
+        <li><a href="#opinie" class="block py-2.5 text-white/80 hover:text-orange-400 transition-colors">Opinie</a></li>
+        <li><a href="#obszar" class="block py-2.5 text-white/80 hover:text-orange-400 transition-colors">Obszar</a></li>
+        <li><a href="#kontakt" class="block py-2.5 text-white/80 hover:text-orange-400 transition-colors">Kontakt</a></li>
+        <li class="pt-2">
+          <a href="#kontakt" class="block text-center py-2.5 rounded-lg text-white font-700" style="background: var(--color-orange); font-family: var(--font-display);">Zamów fachowca</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="relative min-h-screen flex items-center overflow-hidden" style="background: var(--color-navy);">
+    <!-- Background image -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600&q=80&auto=format&fit=crop"
+        alt="Fachowiec przy pracy"
+        class="w-full h-full object-cover object-center"
+        style="opacity: 0.35;"
+      />
+      <!-- Gradient overlay -->
+      <div class="absolute inset-0" style="background: linear-gradient(110deg, rgba(20,33,61,0.92) 0%, rgba(20,33,61,0.75) 50%, rgba(20,33,61,0.55) 100%);"></div>
+    </div>
+
+    <!-- Decorative diagonal stripe -->
+    <div class="absolute bottom-0 right-0 w-1/3 h-full z-0 hidden lg:block" style="background: linear-gradient(135deg, transparent 40%, rgba(249,115,22,0.08) 100%);"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-20">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 mb-6 reveal">
+        <span class="flex h-2.5 w-2.5 rounded-full" style="background: var(--color-orange);">
+          <span class="animate-ping absolute inline-flex h-2.5 w-2.5 rounded-full opacity-75" style="background: var(--color-orange);"></span>
+        </span>
+        <span class="text-xs font-700 tracking-widest uppercase text-white/70" style="font-family: var(--font-display);">Dojazd 24h · Warszawa i okolice</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="reveal text-5xl sm:text-6xl lg:text-7xl font-800 text-white leading-tight max-w-3xl mb-6" style="font-family: var(--font-display); transition-delay: 0.1s;">
+        Awaria?<br/>
+        <span style="color: var(--color-orange);">Jesteśmy u Ciebie</span><br/>
+        w 45 minut.
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="reveal text-lg sm:text-xl text-white/70 max-w-xl mb-10 leading-relaxed" style="transition-delay: 0.2s;">
+        Hydraulika, elektryka, drobne naprawy — szybko, solidnie i bez niespodzianek w cenie. Ponad 3 000 zrealizowanych zleceń w Warszawie.
+      </p>
+
+      <!-- CTAs -->
+      <div class="reveal flex flex-col sm:flex-row gap-4 items-start" style="transition-delay: 0.3s;">
+        <a href="#kontakt" class="inline-flex items-center gap-2 px-7 py-4 rounded-xl text-base font-700 text-white shadow-lg transition-all duration-200 hover:scale-105" style="background: var(--color-orange); font-family: var(--font-display); box-shadow: 0 4px 24px rgba(249,115,22,0.4);" onmouseover="this.style.background='var(--color-orange-dark)'" onmouseout="this.style.background='var(--color-orange)'">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          Zamów fachowca
+        </a>
+        <a href="tel:223456789" class="inline-flex items-center gap-3 px-6 py-4 rounded-xl text-base font-700 text-white border-2 border-white/30 hover:border-white/60 transition-all duration-200 hover:bg-white/10" style="font-family: var(--font-display);">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          tel. 22 345 67 89
+        </a>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="reveal mt-16 flex flex-wrap gap-6 sm:gap-10" style="transition-delay: 0.4s;">
+        <div class="flex flex-col">
+          <span class="text-3xl font-800 text-white" style="font-family: var(--font-display);">3000+</span>
+          <span class="text-xs text-white/50 uppercase tracking-wider mt-0.5">Zleceń rocznie</span>
+        </div>
+        <div class="w-px bg-white/20 hidden sm:block"></div>
+        <div class="flex flex-col">
+          <span class="text-3xl font-800 text-white" style="font-family: var(--font-display);">45 min</span>
+          <span class="text-xs text-white/50 uppercase tracking-wider mt-0.5">Czas dojazdu</span>
+        </div>
+        <div class="w-px bg-white/20 hidden sm:block"></div>
+        <div class="flex flex-col">
+          <span class="text-3xl font-800 text-white" style="font-family: var(--font-display);">12 mies.</span>
+          <span class="text-xs text-white/50 uppercase tracking-wider mt-0.5">Gwarancja</span>
+        </div>
+        <div class="w-px bg-white/20 hidden sm:block"></div>
+        <div class="flex flex-col">
+          <span class="text-3xl font-800 text-white" style="font-family: var(--font-display);">24/7</span>
+          <span class="text-xs text-white/50 uppercase tracking-wider mt-0.5">Awarie</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce">
+      <span class="text-white/30 text-xs tracking-widest uppercase">Więcej</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </header>
+
+  <!-- USŁUGI -->
+  <section id="uslugi" class="py-24" style="background: var(--color-white-soft);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <p class="reveal text-xs font-700 tracking-widest uppercase mb-3" style="color: var(--color-orange); font-family: var(--font-display);">Co robimy</p>
+        <h2 class="reveal text-4xl sm:text-5xl font-800 text-navy" style="color: var(--color-navy); font-family: var(--font-display); transition-delay: 0.1s;">Nasze usługi</h2>
+        <p class="reveal text-lg text-gray-500 mt-4 max-w-xl mx-auto" style="transition-delay: 0.2s;">Kompleksowa obsługa techniczna Twojego mieszkania lub domu — jeden numer, jeden fachowiec.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1: Hydraulika -->
+        <div class="reveal group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 cursor-default" style="border-top-color: var(--color-orange); transition-delay: 0.05s;">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background: rgba(249,115,22,0.1);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="color: var(--color-orange);">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1M4.22 4.22l.707.707m12.727 12.727.707.707M3 12h1m16 0h1M4.22 19.78l.707-.707m12.727-12.727.707-.707M12 7a5 5 0 100 10A5 5 0 0012 7z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-700 mb-2" style="color: var(--color-navy); font-family: var(--font-display);">Hydraulika</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Naprawy kranów, rur, odpływów, uszczelki, instalacje wodne i kanalizacyjne. Usuwamy przecieki i awarie.</p>
+          <ul class="mt-4 space-y-1.5 text-sm text-gray-400">
+            <li class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Naprawa kranów i baterii
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Udrażnianie odpływów
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Wymiana rur i złączek
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Elektryka -->
+        <div class="reveal group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 cursor-default" style="border-top-color: var(--color-orange); transition-delay: 0.1s;">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background: rgba(249,115,22,0.1);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="color: var(--color-orange);">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-700 mb-2" style="color: var(--color-navy); font-family: var(--font-display);">Elektryka</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Montaż gniazdek i włączników, wymiana bezpieczników, instalacja oświetlenia LED, diagnostyka instalacji.</p>
+          <ul class="mt-4 space-y-1.5 text-sm text-gray-400">
+            <li class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Gniazdka i włączniki
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Oświetlenie LED
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Bezpieczniki i skrzynki
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Naprawy -->
+        <div class="reveal group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 cursor-default" style="border-top-color: var(--color-orange); transition-delay: 0.15s;">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background: rgba(249,115,22,0.1);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="color: var(--color-orange);">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-700 mb-2" style="color: var(--color-navy); font-family: var(--font-display);">Drobne naprawy</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Wiercenie, kołkowanie, montaż drzwi i mebli, układanie paneli podłogowych i inne prace wykończeniowe.</p>
+          <ul class="mt-4 space-y-1.5 text-sm text-gray-400">
+            <li class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Wiercenie i kołkowanie
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Montaż mebli i drzwi
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Układanie paneli
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 4: Awarie 24/7 -->
+        <div class="reveal group rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 cursor-default" style="border-top-color: var(--color-orange); background: var(--color-navy); transition-delay: 0.2s;">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background: rgba(249,115,22,0.2);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="color: var(--color-orange);">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-700 mb-2 text-white" style="font-family: var(--font-display);">Awarie 24/7</h3>
+          <p class="text-white/60 text-sm leading-relaxed">Błyskawiczny dojazd do awarii — zalania, przerwy w prądzie, pęknięte rury. Jesteśmy dostępni całą dobę.</p>
+          <ul class="mt-4 space-y-1.5 text-sm text-white/40">
+            <li class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Zalania i przecieki
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Przerwy w prądzie
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Dojazd do 45 min
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DLACZEGO MY -->
+  <section id="o-nas" class="py-24" style="background: var(--color-navy);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <p class="reveal text-xs font-700 tracking-widest uppercase mb-3" style="color: var(--color-orange); font-family: var(--font-display);">Nasze wartości</p>
+        <h2 class="reveal text-4xl sm:text-5xl font-800 text-white" style="font-family: var(--font-display); transition-delay: 0.1s;">Dlaczego FixDom?</h2>
+        <p class="reveal text-lg text-white/50 mt-4 max-w-xl mx-auto" style="transition-delay: 0.2s;">Nie obiecujemy cudów — dostarczamy solidną pracę w terminie i w cenie.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Szybko -->
+        <div class="reveal text-center p-8 rounded-2xl" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition-delay: 0.05s;">
+          <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5" style="background: rgba(249,115,22,0.15); border: 2px solid rgba(249,115,22,0.3);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="color: var(--color-orange);">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <div class="text-4xl font-800 text-white mb-1" style="font-family: var(--font-display);">45 min</div>
+          <div class="text-base font-700 text-white mb-2" style="font-family: var(--font-display);">Szybko</div>
+          <p class="text-sm text-white/50 leading-relaxed">Gwarantowany dojazd do 45 minut od zgłoszenia w obrębie Warszawy.</p>
+        </div>
+
+        <!-- Czysto -->
+        <div class="reveal text-center p-8 rounded-2xl" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition-delay: 0.1s;">
+          <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5" style="background: rgba(249,115,22,0.15); border: 2px solid rgba(249,115,22,0.3);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="color: var(--color-orange);">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+          </div>
+          <div class="text-4xl font-800 text-white mb-1" style="font-family: var(--font-display);">100%</div>
+          <div class="text-base font-700 text-white mb-2" style="font-family: var(--font-display);">Czysto</div>
+          <p class="text-sm text-white/50 leading-relaxed">Sprzątamy po sobie każdorazowo. Wychodzimy tak jak zastaliśmy — albo lepiej.</p>
+        </div>
+
+        <!-- Gwarancja -->
+        <div class="reveal text-center p-8 rounded-2xl" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition-delay: 0.15s;">
+          <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5" style="background: rgba(249,115,22,0.15); border: 2px solid rgba(249,115,22,0.3);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="color: var(--color-orange);">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <div class="text-4xl font-800 text-white mb-1" style="font-family: var(--font-display);">12 mies.</div>
+          <div class="text-base font-700 text-white mb-2" style="font-family: var(--font-display);">Gwarancja</div>
+          <p class="text-sm text-white/50 leading-relaxed">Pełna gwarancja na każdą wykonaną usługę przez 12 miesięcy. Bez wyjątków.</p>
+        </div>
+
+        <!-- Stała cena -->
+        <div class="reveal text-center p-8 rounded-2xl" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition-delay: 0.2s;">
+          <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5" style="background: rgba(249,115,22,0.15); border: 2px solid rgba(249,115,22,0.3);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="color: var(--color-orange);">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="text-4xl font-800 text-white mb-1" style="font-family: var(--font-display);">0 zł</div>
+          <div class="text-base font-700 text-white mb-2" style="font-family: var(--font-display);">Stała cena</div>
+          <p class="text-sm text-white/50 leading-relaxed">Bezpłatna wycena przed pracą. Cena zaakceptowana — cena ostateczna. Zero niespodzianek.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CENNIK -->
+  <section id="cennik" class="py-24" style="background: var(--color-white-soft);">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <p class="reveal text-xs font-700 tracking-widest uppercase mb-3" style="color: var(--color-orange); font-family: var(--font-display);">Przejrzyste stawki</p>
+        <h2 class="reveal text-4xl sm:text-5xl font-800" style="color: var(--color-navy); font-family: var(--font-display); transition-delay: 0.1s;">Cennik usług</h2>
+        <p class="reveal text-lg text-gray-500 mt-4 max-w-xl mx-auto" style="transition-delay: 0.2s;">Wycena bezpłatna przed każdą usługą. Płacisz dopiero gdy praca jest wykonana.</p>
+      </div>
+
+      <div class="reveal bg-white rounded-3xl shadow-lg overflow-hidden" style="border: 1px solid var(--color-gray-light);">
+        <!-- Table header -->
+        <div class="grid grid-cols-3 px-8 py-4 text-xs font-700 uppercase tracking-wider text-white" style="background: var(--color-navy); font-family: var(--font-display);">
+          <span>Usługa</span>
+          <span class="text-center">Stawka</span>
+          <span class="text-right">Uwagi</span>
+        </div>
+
+        <!-- Row 1 -->
+        <div class="grid grid-cols-3 px-8 py-5 items-center border-b" style="border-color: var(--color-gray-light);">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: rgba(249,115,22,0.1);">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--color-orange);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1M4.22 4.22l.707.707m12.727 12.727.707.707M3 12h1m16 0h1M4.22 19.78l.707-.707m12.727-12.727.707-.707M12 7a5 5 0 100 10A5 5 0 0012 7z" />
+              </svg>
+            </div>
+            <span class="font-600 text-gray-800 text-sm sm:text-base" style="font-family: var(--font-display);">Hydraulika</span>
+          </div>
+          <div class="text-center font-800 text-lg" style="color: var(--color-orange); font-family: var(--font-display);">od 120 zł/h</div>
+          <div class="text-right text-sm text-gray-400">robocizna</div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="grid grid-cols-3 px-8 py-5 items-center border-b" style="border-color: var(--color-gray-light); background: rgba(249,115,22,0.02);">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: rgba(249,115,22,0.1);">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--color-orange);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <span class="font-600 text-gray-800 text-sm sm:text-base" style="font-family: var(--font-display);">Elektryka</span>
+          </div>
+          <div class="text-center font-800 text-lg" style="color: var(--color-orange); font-family: var(--font-display);">od 130 zł/h</div>
+          <div class="text-right text-sm text-gray-400">robocizna</div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="grid grid-cols-3 px-8 py-5 items-center border-b" style="border-color: var(--color-gray-light);">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: rgba(249,115,22,0.1);">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--color-orange);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
+              </svg>
+            </div>
+            <span class="font-600 text-gray-800 text-sm sm:text-base" style="font-family: var(--font-display);">Drobne naprawy</span>
+          </div>
+          <div class="text-center font-800 text-lg" style="color: var(--color-orange); font-family: var(--font-display);">od 90 zł/h</div>
+          <div class="text-right text-sm text-gray-400">robocizna</div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="grid grid-cols-3 px-8 py-5 items-center border-b" style="border-color: var(--color-gray-light); background: rgba(249,115,22,0.02);">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: rgba(249,115,22,0.1);">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--color-orange);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <span class="font-600 text-gray-800 text-sm sm:text-base" style="font-family: var(--font-display);">Dojazd</span>
+          </div>
+          <div class="text-center font-800 text-lg" style="color: var(--color-orange); font-family: var(--font-display);">30–60 zł</div>
+          <div class="text-right text-sm text-gray-400">dzielnica</div>
+        </div>
+
+        <!-- Row 5: Awaria nocna — highlighted -->
+        <div class="grid grid-cols-3 px-8 py-5 items-center" style="background: rgba(20,33,61,0.04);">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: rgba(249,115,22,0.15);">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--color-orange);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            </div>
+            <span class="font-600 text-gray-800 text-sm sm:text-base" style="font-family: var(--font-display);">Awaria nocna</span>
+          </div>
+          <div class="text-center font-800 text-lg" style="color: var(--color-orange); font-family: var(--font-display);">+50%</div>
+          <div class="text-right text-sm text-gray-400">22:00–6:00</div>
+        </div>
+
+        <!-- Footer note -->
+        <div class="px-8 py-4 flex items-center gap-2" style="background: rgba(249,115,22,0.06); border-top: 1px solid rgba(249,115,22,0.2);">
+          <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+          <span class="text-sm font-500" style="color: var(--color-navy);">Wycena bezpłatna przed każdą usługą. Podane ceny nie zawierają materiałów.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPINIE -->
+  <section id="opinie" class="py-24" style="background: var(--color-gray-light);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <p class="reveal text-xs font-700 tracking-widest uppercase mb-3" style="color: var(--color-orange); font-family: var(--font-display);">Co mówią klienci</p>
+        <h2 class="reveal text-4xl sm:text-5xl font-800" style="color: var(--color-navy); font-family: var(--font-display); transition-delay: 0.1s;">Opinie</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Review 1 -->
+        <div class="reveal bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300" style="transition-delay: 0.05s;">
+          <div class="flex gap-1 mb-5">
+            {[1,2,3,4,5].map(() => (
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">"Zadzwoniłam o 7 rano z awaria rury pod zlewem. Pan był u mnie już przed 8. Naprawa w 20 minut, wszystko posprzątane, cena dokładnie jak na wycenie. Polecam z całego serca!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-700 text-sm" style="background: var(--color-navy); font-family: var(--font-display);">AK</div>
+            <div>
+              <div class="font-700 text-sm" style="color: var(--color-navy); font-family: var(--font-display);">Anna Kowalska</div>
+              <div class="text-xs text-gray-400">Mokotów</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="reveal bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300" style="transition-delay: 0.1s;">
+          <div class="flex gap-1 mb-5">
+            {[1,2,3,4,5].map(() => (
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">"Montaż oświetlenia LED w całym mieszkaniu — 3 pokoje i kuchnia. Praca staranna, kable ukryte, żadnego bałaganu. Fachowiec wiedział co robi i nie tracił czasu. Na pewno wrócę."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-700 text-sm" style="background: var(--color-navy); font-family: var(--font-display);">MN</div>
+            <div>
+              <div class="font-700 text-sm" style="color: var(--color-navy); font-family: var(--font-display);">Marek Nowak</div>
+              <div class="text-xs text-gray-400">Żoliborz</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="reveal bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300" style="transition-delay: 0.15s;">
+          <div class="flex gap-1 mb-5">
+            {[1,2,3,4,5].map(() => (
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: var(--color-orange);">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">"Skorzystałam z usługi złotej rączki — montaż szafy, wiercenie uchwytów i regulacja drzwi. Wszystko zrobione dokładnie, terminowo i w przystępnej cenie. Bardzo polecam FixDom!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-700 text-sm" style="background: var(--color-navy); font-family: var(--font-display);">KW</div>
+            <div>
+              <div class="font-700 text-sm" style="color: var(--color-navy); font-family: var(--font-display);">Katarzyna Wiśniewska</div>
+              <div class="text-xs text-gray-400">Ursynów</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBSZAR DZIAŁANIA -->
+  <section id="obszar" class="py-24" style="background: var(--color-white-soft);">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <p class="reveal text-xs font-700 tracking-widest uppercase mb-3" style="color: var(--color-orange); font-family: var(--font-display);">Gdzie działamy</p>
+      <h2 class="reveal text-4xl sm:text-5xl font-800 mb-4" style="color: var(--color-navy); font-family: var(--font-display); transition-delay: 0.1s;">Obszar działania</h2>
+      <p class="reveal text-lg text-gray-500 mb-12 max-w-xl mx-auto" style="transition-delay: 0.2s;">Obsługujemy Warszawę i aglomerację. Sprawdź czy Twoja dzielnica jest w zasięgu — na pewno tak!</p>
+
+      <div class="reveal flex flex-wrap justify-center gap-3" style="transition-delay: 0.25s;">
+        {["Mokotów", "Żoliborz", "Ochota", "Wola", "Ursynów", "Bielany", "Bemowo", "Praga-Południe", "Praga-Północ", "Śródmieście"].map((district, i) => (
+          <span
+            class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-700 transition-all duration-200 hover:scale-105 cursor-default"
+            style={i % 3 === 0
+              ? `background: var(--color-navy); color: white; font-family: var(--font-display);`
+              : i % 3 === 1
+                ? `background: var(--color-orange); color: white; font-family: var(--font-display);`
+                : `background: white; color: var(--color-navy); border: 2px solid var(--color-navy); font-family: var(--font-display);`
+            }
+          >
+            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+            {district}
+          </span>
+        ))}
+      </div>
+
+      <div class="reveal mt-10 inline-flex items-center gap-2 text-sm text-gray-400" style="transition-delay: 0.35s;">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--color-orange);"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Nie widzisz swojej dzielnicy? Zadzwoń — być może też dojedziemy!
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARZ + MAPA -->
+  <section id="kontakt" class="py-24" style="background: var(--color-navy);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <p class="reveal text-xs font-700 tracking-widest uppercase mb-3" style="color: var(--color-orange); font-family: var(--font-display);">Zamów usługę</p>
+        <h2 class="reveal text-4xl sm:text-5xl font-800 text-white" style="font-family: var(--font-display); transition-delay: 0.1s;">Skontaktuj się</h2>
+        <p class="reveal text-lg text-white/50 mt-4 max-w-xl mx-auto" style="transition-delay: 0.2s;">Wypełnij formularz, oddzwonimy w ciągu godziny i umówimy wizytę.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <!-- Form -->
+        <div class="reveal" style="transition-delay: 0.1s;">
+          <form class="space-y-5" onsubmit="event.preventDefault(); alert('Dziękujemy! Oddzwonimy wkrótce.');">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-600 text-white/60 uppercase tracking-wider mb-2" style="font-family: var(--font-display);">Imię i nazwisko</label>
+                <input type="text" placeholder="Jan Kowalski" required class="w-full px-4 py-3 rounded-xl text-white placeholder-white/30 text-sm transition-all duration-200 focus:outline-none focus:ring-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); focus-ring-color: var(--color-orange);" />
+              </div>
+              <div>
+                <label class="block text-xs font-600 text-white/60 uppercase tracking-wider mb-2" style="font-family: var(--font-display);">Telefon</label>
+                <input type="tel" placeholder="+48 500 123 456" required class="w-full px-4 py-3 rounded-xl text-white placeholder-white/30 text-sm transition-all duration-200 focus:outline-none focus:ring-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-600 text-white/60 uppercase tracking-wider mb-2" style="font-family: var(--font-display);">Typ usługi</label>
+              <select required class="w-full px-4 py-3 rounded-xl text-white text-sm transition-all duration-200 focus:outline-none focus:ring-2 appearance-none cursor-pointer" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">
+                <option value="" disabled selected style="background: var(--color-navy); color: white;">Wybierz usługę…</option>
+                <option value="hydraulika" style="background: var(--color-navy); color: white;">Hydraulika</option>
+                <option value="elektryka" style="background: var(--color-navy); color: white;">Elektryka</option>
+                <option value="naprawy" style="background: var(--color-navy); color: white;">Drobne naprawy</option>
+                <option value="awaria" style="background: var(--color-navy); color: white;">Awaria 24/7</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-600 text-white/60 uppercase tracking-wider mb-2" style="font-family: var(--font-display);">Opis problemu</label>
+              <textarea placeholder="Opisz czego potrzebujesz — im więcej szczegółów, tym lepiej możemy się przygotować." rows="4" class="w-full px-4 py-3 rounded-xl text-white placeholder-white/30 text-sm transition-all duration-200 focus:outline-none focus:ring-2 resize-none" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-xs font-600 text-white/60 uppercase tracking-wider mb-2" style="font-family: var(--font-display);">Preferowany termin</label>
+              <input type="date" class="w-full px-4 py-3 rounded-xl text-white/70 text-sm transition-all duration-200 focus:outline-none focus:ring-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color-scheme: dark;" />
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl text-base font-700 text-white transition-all duration-200 hover:scale-[1.02] active:scale-100 shadow-lg" style="background: var(--color-orange); font-family: var(--font-display); box-shadow: 0 4px 20px rgba(249,115,22,0.35);" onmouseover="this.style.background='var(--color-orange-dark)'" onmouseout="this.style.background='var(--color-orange)'">
+              Wyślij zgłoszenie
+            </button>
+
+            <p class="text-xs text-white/30 text-center">Twoje dane są bezpieczne. Nie przekazujemy ich osobom trzecim.</p>
+          </form>
+        </div>
+
+        <!-- Map + contact info -->
+        <div class="reveal flex flex-col gap-6" style="transition-delay: 0.2s;">
+          <!-- Quick contact -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a href="tel:223456789" class="flex items-center gap-4 p-5 rounded-2xl hover:bg-white/10 transition-all duration-200" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);">
+              <div class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(249,115,22,0.2);">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--color-orange);">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-xs text-white/40 uppercase tracking-wider mb-0.5">Telefon</div>
+                <div class="text-white font-700 text-sm" style="font-family: var(--font-display);">22 345 67 89</div>
+              </div>
+            </a>
+            <a href="mailto:kontakt@fixdom.pl" class="flex items-center gap-4 p-5 rounded-2xl hover:bg-white/10 transition-all duration-200" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);">
+              <div class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(249,115,22,0.2);">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--color-orange);">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-xs text-white/40 uppercase tracking-wider mb-0.5">Email</div>
+                <div class="text-white font-700 text-sm" style="font-family: var(--font-display);">kontakt@fixdom.pl</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Map -->
+          <div class="rounded-2xl overflow-hidden flex-1 min-h-72" style="border: 2px solid rgba(255,255,255,0.1);">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=20.8510%2C52.1000%2C21.2710%2C52.3500&layer=mapnik"
+              width="100%"
+              height="350"
+              style="border:0;"
+              loading="lazy"
+              title="Obszar działania FixDom — Warszawa"
+            ></iframe>
+          </div>
+
+          <p class="text-xs text-white/30 text-center">Godziny pracy: Pon–Pt 7:00–20:00, Sob 8:00–16:00. Awarie — całą dobę.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12" style="background: var(--color-dark); border-top: 1px solid rgba(255,255,255,0.06);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-white/10">
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <div class="text-2xl font-800 text-white mb-3" style="font-family: var(--font-display);">Fix<span style="color: var(--color-orange);">Dom</span></div>
+          <p class="text-sm text-white/40 leading-relaxed max-w-xs mb-5">Hydraulika, elektryka i drobne naprawy domowe w Warszawie. Szybko, solidnie, bez niespodzianek.</p>
+          <div class="flex items-center gap-2">
+            <a href="tel:223456789" class="inline-flex items-center gap-2 text-sm font-600 text-white/70 hover:text-white transition-colors" style="font-family: var(--font-display);">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--color-orange);"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+              22 345 67 89
+            </a>
+            <span class="text-white/20">·</span>
+            <span class="text-xs text-white/30">24/7 Awarie</span>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div>
+          <div class="text-xs font-700 uppercase tracking-widest text-white/50 mb-4" style="font-family: var(--font-display);">Usługi</div>
+          <ul class="space-y-2 text-sm text-white/50">
+            <li><a href="#uslugi" class="hover:text-white transition-colors">Hydraulika</a></li>
+            <li><a href="#uslugi" class="hover:text-white transition-colors">Elektryka</a></li>
+            <li><a href="#uslugi" class="hover:text-white transition-colors">Naprawy domowe</a></li>
+            <li><a href="#uslugi" class="hover:text-white transition-colors">Awarie 24/7</a></li>
+          </ul>
+        </div>
+
+        <!-- Info -->
+        <div>
+          <div class="text-xs font-700 uppercase tracking-widest text-white/50 mb-4" style="font-family: var(--font-display);">Informacje</div>
+          <ul class="space-y-2 text-sm text-white/50">
+            <li><a href="#cennik" class="hover:text-white transition-colors">Cennik</a></li>
+            <li><a href="#opinie" class="hover:text-white transition-colors">Opinie klientów</a></li>
+            <li><a href="#obszar" class="hover:text-white transition-colors">Obszar działania</a></li>
+            <li><a href="#kontakt" class="hover:text-white transition-colors">Kontakt</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-xs text-white/30">© 2025 FixDom. Wszelkie prawa zastrzeżone.</p>
+        <a href="https://stronainternetowa.biz" target="_blank" rel="noopener" class="text-xs text-white/30 hover:text-white/60 transition-colors underline underline-offset-2">
+          Przykładowa strona zrobiona przez stronainternetowa.biz
+        </a>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  #nav {
+    background: transparent;
+    transition: background 0.3s ease, border 0.3s ease;
+  }
+  #nav.scrolled {
+    background: rgba(20, 33, 61, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(249, 115, 22, 0.3);
+  }
+
+  /* Form input focus rings */
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.5);
+    border-color: rgba(249, 115, 22, 0.6) !important;
+  }
+</style>
