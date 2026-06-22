@@ -69,3 +69,11 @@ body {
 #nav {
   top: 2.25rem;
 }
+
+/* Po przewinięciu: ciemne tło, żeby biały tekst nav był czytelny na jasnych sekcjach */
+#nav.scrolled {
+  background: rgba(20, 33, 61, 0.97);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(249, 115, 22, 0.18);
+}
